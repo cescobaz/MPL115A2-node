@@ -74,9 +74,14 @@ MPL115A2.prototype.read = async function () {
   const pcomp = this.a0 + (this.b1 + this.c12 * tadc) * padc + this.b2 * tadc
   console.log('pcomp', pcomp)
   const pressureValue = pcomp * ((115 - 50) / 1023) + 50
-  const pressure = { date: new Date(), unit: 'kPa', value: pressureValue }
+  const now = new Date()
+  const pressure = { date: now, unit: 'kPa', value: pressureValue }
   this.pressure = pressure
-  return { pressure }
+
+  const temperatureCelsius = (tadc - 414) / 4
+  const temperature = { date: now, unit: 'celsius', value: temperatureCelsius }
+  this.temperature = temperature
+  return { pressure, temperature }
 }
 
 function makeFraction (msb, lsb, fractionSize, extraValueRShift = 0) {
