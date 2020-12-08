@@ -22,5 +22,8 @@
   "bugs": {
     "url": "https://github.com/cescobaz/MPL115A2-node/issues"
   },
-  "homepage": "https://github.com/cescobaz/MPL115A2-node#readme"
+  "homepage": "https://github.com/cescobaz/MPL115A2-node#readme",
+  "dependencies": {
+    "i2c-bus": "^5.2.1"
+  }
 }
