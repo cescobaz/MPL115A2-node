@@ -1,0 +1,26 @@
+{
+  "name": "mpl115a2-node",
+  "version": "0.0.1",
+  "description": "MPL115A2 raspberry pi lib",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cescobaz/MPL115A2-node.git"
+  },
+  "keywords": [
+    "raspberry",
+    "MPL115A2",
+    "pi",
+    "pressure",
+    "temperature"
+  ],
+  "author": "Francesco Burelli",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/cescobaz/MPL115A2-node/issues"
+  },
+  "homepage": "https://github.com/cescobaz/MPL115A2-node#readme"
+}
