@@ -1,5 +1,5 @@
 {
-  "name": "mpl115a2-node",
+  "name": "mpl115a2",
   "version": "0.0.1",
   "description": "MPL115A2 raspberry pi lib",
   "main": "src/mpl115a2.js",
