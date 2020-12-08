@@ -2,7 +2,7 @@
   "name": "mpl115a2-node",
   "version": "0.0.1",
   "description": "MPL115A2 raspberry pi lib",
-  "main": "index.js",
+  "main": "src/mpl115a2.js",
   "scripts": {
     "test": "tap"
   },
