@@ -64,14 +64,15 @@ MPL115A2.prototype.read = async function () {
   const tadcMSB = await i2c1.readByte(deviceAddress, tadcMSBAddress)
   const tadcLSB = await i2c1.readByte(deviceAddress, tadcLSBAddress)
 
-  const padc = (padcMSB << 2) | (padcLSB & 0x0003)
+  const padc = ((padcMSB << 8) | (padcLSB & 0x00C0)) >>> 6
   console.log('padc', padc)
-  const tadc = (tadcMSB << 2) | (tadcLSB & 0x0003)
+  const tadc = ((tadcMSB << 8) | (tadcLSB & 0x00C0)) >>> 6
   console.log('tadc', tadc)
 
   await i2c1.close()
 
-  const pcomp = this.a0 + (this.b1 + this.c12 + tadc) * padc + this.b2 * tadc
+  const pcomp = this.a0 + (this.b1 + this.c12 * tadc) * padc + this.b2 * tadc
+  console.log('pcomp', pcomp)
   const pressureValue = pcomp * ((115 - 50) / 1023) + 50
   const pressure = { date: new Date(), unit: 'kPa', value: pressureValue }
   this.pressure = pressure
