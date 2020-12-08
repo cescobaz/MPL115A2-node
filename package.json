@@ -1,6 +1,6 @@
 {
-  "name": "mpl115a2",
-  "version": "0.0.1",
+  "name": "mpl115a2-i2c",
+  "version": "0.0.2",
   "description": "MPL115A2 raspberry pi lib",
   "main": "src/mpl115a2.js",
   "scripts": {
@@ -15,7 +15,8 @@
     "MPL115A2",
     "pi",
     "pressure",
-    "temperature"
+    "temperature",
+    "i2c"
   ],
   "author": "Francesco Burelli",
   "license": "MIT",
