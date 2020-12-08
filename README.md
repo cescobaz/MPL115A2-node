@@ -5,7 +5,7 @@
 See `examples` folder.
 
 ```javascript
-const MPL115A2 = require('mpl115a2')
+const MPL115A2 = require('mpl115a2-i2c')
 
 const mpl115a2 = new MPL115A2()
 mpl115a2.init()
