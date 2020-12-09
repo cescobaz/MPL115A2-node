@@ -30,4 +30,4 @@ const pressure = computePressure({ a0, b1, b2, c12, tadc, padc })
 tap.equal(pressure.value, 96.58732586242587)
 
 const temperature = computeTemperature({ tadc })
-tap.equal(temperature.value, 23.25)
+tap.equal(temperature.value, 23.317757009345794)

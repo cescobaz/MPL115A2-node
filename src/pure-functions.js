@@ -7,7 +7,7 @@ function computePressure ({ date, a0, b1, b2, c12, tadc, padc }) {
 }
 
 function computeTemperature ({ date, tadc }) {
-  const temperatureCelsius = (tadc - 414) / 4
+  const temperatureCelsius = (tadc - 498) / (-5.35) + 25
   return { date, unit: 'celsius', value: temperatureCelsius }
 }
 
