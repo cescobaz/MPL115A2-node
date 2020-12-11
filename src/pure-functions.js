@@ -6,13 +6,14 @@ function computePressure ({ date, a0, b1, b2, c12, tadc, padc }) {
   return { date, unit: 'kPa', value: pressureValue }
 }
 
+// discussion on temperature function https://forums.adafruit.com/viewtopic.php?f=25&p=189708
 function computeTemperature ({ date, tadc }) {
-  const temperatureCelsius = (tadc - 498) / (-5.35) + 25
+  const temperatureCelsius = tadc * (-0.1706) + 112.27
   return { date, unit: 'celsius', value: temperatureCelsius }
 }
 
 function makeADC (msb, lsb) {
-  return ((msb << 8) | (lsb & 0x00C0)) >>> 6
+  return ((msb << 8) | (lsb & 0x00C0)) >> 6
 }
 
 function makeFraction (msb, lsb, fractionSize, extraValueRShift = 0) {
