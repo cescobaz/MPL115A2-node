@@ -48,8 +48,10 @@ MPL115A2.prototype.init = async function () {
 }
 
 MPL115A2.prototype.convert = function () {
+  const self = this
   return i2c.openPromisified(1)
     .then(i2c1 => i2c1.writeByte(deviceAddress, convertAddress, 0x01))
+    .then(() => self.convertDate = new Date())
     .then(() => new Promise(resolve => setTimeout(resolve, 100)))
 }
 
@@ -66,9 +68,12 @@ MPL115A2.prototype.read = async function () {
   const padc = makeADC(padcMSB, padcLSB)
   const tadc = makeADC(tadcMSB, tadcLSB)
 
+  this.padc = padc
+  this.tadc = tadc
+
   await i2c1.close()
 
-  const date = new Date()
+  const date = this.convertDate
   const pressure = computePressure({
     a0: this.a0,
     b1: this.b1,
